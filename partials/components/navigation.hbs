@@ -50,4 +50,26 @@
         </div>
 
     </div>
+
+    {{!-- Tag color data for navigation styling --}}
+    {{!-- Debug: Output all tags to see what data is available --}}
+    <!-- DEBUG: All tags data:
+    {{#get "tags" limit="all"}}
+        {{#foreach tags}}
+            Tag: {{name}}, Slug: {{slug}}, Accent Color: {{accent_color}}
+        {{/foreach}}
+    {{/get}}
+    -->
+
+    <script id="tag-color-data" type="application/json">
+        {
+            {{#get "tags" limit="all"}}
+                {{#foreach tags}}
+                    {{#if accent_color}}
+                        "{{slug}}": "{{accent_color}}"{{#unless @last}},{{/unless}}
+                    {{/if}}
+                {{/foreach}}
+            {{/get}}
+        }
+    </script>
 </header>
