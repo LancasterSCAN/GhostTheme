@@ -523,6 +523,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
     margin-left: -2px;
 }
 
+.gh-stacked-icons {
+    display: none;
+}
+
 @media (max-width: 767px) {
     .gh-navigation-logo {
         white-space: normal;
@@ -631,6 +635,7 @@ Search                         LOGO                    Login Subscribe
     grid-row-start: 1;
     grid-column-start: 2;
     min-height: 80px;
+    padding-top: 12px;
 }
 
 @media (max-width: 767px) {
@@ -683,6 +688,22 @@ Search                         LOGO                    Login Subscribe
         display: flex;
         gap: 10px;
         width: auto;
+    }
+
+    .gh-navigation.is-stacked .gh-stacked-icons {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .gh-navigation.is-stacked .gh-stacked-icons .gh-search {
+        display: flex;
+    }
+
+    .gh-navigation.is-stacked .gh-navigation-menu > .gh-search,
+    .gh-navigation.is-stacked .gh-navigation-actions > .gh-search {
+        display: none;
     }
 }
 

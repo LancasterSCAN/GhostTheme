@@ -127,6 +127,14 @@
                 subtree: true
             });
         }
+
+        // Re-apply colors on window resize (debounced)
+        // This handles cases where dropdown items move on resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(applyTagColors, 150);
+        });
     }
 
     init();

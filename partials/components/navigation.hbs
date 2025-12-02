@@ -1,3 +1,17 @@
+{{!-- Inline tag colors to prevent flash of unstyled content --}}
+<style>
+{{#get "tags" limit="all"}}
+{{#foreach tags}}
+{{#if accent_color}}
+.gh-navigation .nav a[href$="/tag/{{slug}}/"],
+.gh-navigation .nav a[href$="/tag/{{slug}}"] {
+    color: {{accent_color}} !important;
+}
+{{/if}}
+{{/foreach}}
+{{/get}}
+</style>
+
 <header id="gh-navigation" class="gh-navigation is-{{#match navigationLayout "Logo on the left"}}left-logo{{else match navigationLayout "Stacked"}}stacked{{else}}middle-logo{{/match}}{{#match @custom.header_and_footer_color "Accent color"}} has-accent-color{{/match}} gh-outer">
     <div class="gh-navigation-inner gh-inner">
 
@@ -47,6 +61,14 @@
                     {{/unless}}
                 </div>
             {{/unless}}
+            {{#match navigationLayout "Stacked"}}
+                <div class="gh-stacked-icons">
+                    {{> "search-toggle"}}
+                    <a class="gh-admin-login gh-icon-button" href="/ghost/" aria-label="Admin login">
+                        {{> "icons/login"}}
+                    </a>
+                </div>
+            {{/match}}
         </div>
 
     </div>
