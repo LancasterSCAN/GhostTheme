@@ -7,7 +7,10 @@
         <section class="gh-archive{{#if feature_image}} has-image{{/if}}{{#if @custom.show_publication_info_sidebar}} has-sidebar{{/if}} gh-inner">
             <div class="gh-archive-inner">
                 <header class="gh-archive-wrapper">
-                    <h1 class="gh-article-title is-title">{{name}}</h1>
+                    <h1 class="gh-archive-tag is-title">
+                        <span class="gh-archive-tag-swatch" {{#if accent_color}}style="background-color: {{accent_color}}"{{/if}}></span>
+                        <span class="gh-archive-tag-name" {{#if accent_color}}style="color: {{accent_color}}"{{/if}}>{{name}}</span>
+                    </h1>
                     {{#if description}}
                         <p class="gh-article-excerpt">{{description}}</p>
                     {{/if}}
